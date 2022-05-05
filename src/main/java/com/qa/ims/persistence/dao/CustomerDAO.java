@@ -12,6 +12,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.qa.ims.persistence.domain.Customer;
+import com.qa.ims.persistence.domain.Item;
+import com.qa.ims.persistence.domain.Order;
 import com.qa.ims.utils.DBUtils;
 
 public class CustomerDAO implements Dao<Customer> {
@@ -26,6 +28,8 @@ public class CustomerDAO implements Dao<Customer> {
 		return new Customer(id, firstName, surname);
 	}
 
+	
+	
 	/**
 	 * Reads all customers from the database
 	 * 
@@ -70,7 +74,7 @@ public class CustomerDAO implements Dao<Customer> {
 	public Customer create(Customer customer) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("INSERT INTO customers(first_name, surname) VALUES (?, ?)");) {
+						.prepareStatement("INSERT INTO customers(first_name, surname) VALUES (?, ? )");) {
 			statement.setString(1, customer.getFirstName());
 			statement.setString(2, customer.getSurname());
 			statement.executeUpdate();
@@ -80,7 +84,10 @@ public class CustomerDAO implements Dao<Customer> {
 			LOGGER.error(e.getMessage());
 		}
 		return null;
+		
 	}
+	
+
 
 	@Override
 	public Customer read(Long id) {
@@ -140,4 +147,46 @@ public class CustomerDAO implements Dao<Customer> {
 		return 0;
 	}
 
+
+
+	@Override
+	public Item modelFromResultSet1(ResultSet resultSet) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public Item read1(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public Item create1(Item t) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public Item update1(Item t) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public Item update1(Order updated) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
+
+	

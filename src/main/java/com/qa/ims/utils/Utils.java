@@ -5,6 +5,8 @@ import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.qa.ims.persistence.domain.Item;
+
 public class Utils {
 	
 	private static final Logger LOGGER = LogManager.getLogger();
@@ -50,6 +52,17 @@ public class Utils {
 			}
 		} while (doubleInput == null);
 		return doubleInput;
+	}
+
+	public void create(Item created) {
+		
+
+		
+	}
+
+	public static String getInput() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
